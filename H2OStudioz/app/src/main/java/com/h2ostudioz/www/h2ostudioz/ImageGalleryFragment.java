@@ -20,17 +20,17 @@ import static com.h2ostudioz.www.h2ostudioz.R.id.gridview;
 /**
  * A simple {@link Fragment} subclass.
  */
-public abstract class ImageGalleryFragment extends Fragment {
+public class ImageGalleryFragment extends Fragment {
     GridView grid_view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_image_gallery, container, false);
-        grid_view = (GridView) findViewById(R.id.gridview);
-        grid_view.setAdapter(new ImageAdapter(this));
-
+        View view =  inflater.inflate(R.layout.fragment_image_gallery, container, false);
+        grid_view = (GridView) view.findViewById(R.id.gridview);
+        grid_view.setAdapter(new ImageAdapter(getActivity()));
+        return view;
     }
 
 
